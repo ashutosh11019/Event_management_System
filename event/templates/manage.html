@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container ">
+    
+  <table class="table table-dark table-striped ">
+    <thead >
+    <h2 class="text-center">Welcome to Event database</h2>
+    </thead>
+  </table>
+    
+  <table class="table table-dark table-striped " style="margin-top:10px;">
+  <thead>
+    <tr>
+      <th scope="col">Event ID</th>
+      <th scope="col">Event Name</th>
+      <th scope="col">Even Date</th>
+      <th scope="col">Organizer Email</th>
+      <th scope="col">Organizer Phone No.</th>
+      <th scope="col">Event Description</th>
+      <th scope="col">Event Type</th>
+      <th scope="col">Event Location</th>
+      <th scope="col">Event Status</th>
+      <th scope="col">Max Seats</th>
+
+    </tr>
+  </thead>
+{% for item in data %}
+  
+  <tbody>
+    <tr>
+      <td>{{item.event_id}}</td>
+      <td>{{item.event_name}}</td>
+      <td>{{item.event_date}}</td>
+      <td>{{item.organizer_email}}</td>
+      <td>{{item.organizer_phone}}</td>
+      <td>{{item.event_description}}</td>
+      <td>{{item.event_type}}</td>
+      <td>{{item.event_location}}</td>
+      <td>{{item.event_status}}</td>
+      <td>{{item.max_seats}}</td>
+      <td><a type="button" href="{% url 'updatetask' item.id %}" class="btn btn-warning">Edit</a></td>
+      <td><a type="button"  href="{% url 'deletetask' item.id %}" class="btn btn-danger">Delete</a></td>
+
+    </tr>
+    
+  </tbody>
+  
+{% endfor %}
+
+</table>
+
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+{% endblock content %}
